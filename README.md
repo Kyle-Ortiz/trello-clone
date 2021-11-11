@@ -1,9 +1,8 @@
-# Project Template: React/Rails API
+# Trello Clone 
 
 ## Description
 
-This project is scaffolded so that you can build a React frontend and Rails
-backend together, and easily deploy them to Heroku.
+This project is meant to replicate, in a basic way, a clone of trello. It will also include the additional feature of having nested project boards to better manage subtasks on the project. 
 
 ## Requirements
 
