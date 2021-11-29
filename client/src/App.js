@@ -2,7 +2,7 @@ import './App.css';
 import Header from './Components/Header';
 import Signup from './Components/Signup'
 import {
-  Switch,
+  Routes,
   Route
 } from "react-router-dom";
 
@@ -10,14 +10,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Switch>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+      <Routes>
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/home" element={<Signup/>}/>
+        </Routes>
     </div>
   );
 }
