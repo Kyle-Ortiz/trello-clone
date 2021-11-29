@@ -3,6 +3,7 @@
 
 .App {
   text-align: center;
+  
 }
 
 a {
@@ -14,6 +15,14 @@ a {
 .navbar {
   display:flex;
   justify-content: space-between;
+  padding: .6rem 1.2rem;
+}
+.fix-header {
+  background-color: transparent;
+}
+
+.fix-header.active{
+  background-color: #fff;
 }
 
 #nav-logo {
