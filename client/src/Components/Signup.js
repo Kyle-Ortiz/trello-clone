@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Signup() {
+
      return (
           <div id="signup-form">
                <div id="email-input">
