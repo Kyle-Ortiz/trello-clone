@@ -58,5 +58,25 @@ a {
   background-color: #0051cc;
 }
 #signup-form {
+  max-width: 585px;
+  margin: 0 auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#signup-header{
+  text-align: center;
+  color: #5E6C84;
+  font-size: 1rem;
+  margin-top: 25px 0px;
+  margin-bottom: 25px;
+}
+.form {
+  font-size: 14px;
+  background-color: #FAFBFC;
+  border: 2px solid #DFE1E6;
+  border-radius: 3px;
+  padding: 7px;
+  height: 26px;
+  max-width: 302px;
+  margin-bottom: 1rem;
+  width: 100%;
 }

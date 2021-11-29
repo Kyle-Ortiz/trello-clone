@@ -6,9 +6,9 @@ function Signup() {
      return (
           <div id="signup-form">
                <div id="email-input">
-                    <h1>Sign up for your account</h1>
+                    <h1 id="signup-header">Sign up for your account</h1>
                     <form action="submit">
-                         <input type="text" onChange={(e)=> setEmail(e.target.value)}placeholder="Enter Email" value={email}/>
+                         <input type="text" className="form"onChange={(e)=> setEmail(e.target.value)}placeholder="Enter email" value={email}/>
                     </form>
                </div>
           </div>
