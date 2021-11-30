@@ -23,10 +23,11 @@ function Login({user,setUser}) {
 
      function formSubmission(e) {
           e.preventDefault();
-          console.log(values);
-          debugger;
           fetch("/sessions", {
                method: 'POST',
+               headers: {
+                    'Content-Type': 'application/json',
+                  },
                body: JSON.stringify(values)
           })
           .then((r) => {
