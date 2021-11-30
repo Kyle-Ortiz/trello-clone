@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './Components/Header';
 import Signup from './Components/Signup'
+import Login from './Components/Login'
 import {
   Routes,
   Route
@@ -12,7 +13,7 @@ function App() {
       <Header />
       <Routes>
           <Route path="/signup" element={<Signup/>}/>
-          <Route path="/home" element={<Signup/>}/>
+          <Route path="/home" element={<Login />}/>
         </Routes>
     </div>
   );
