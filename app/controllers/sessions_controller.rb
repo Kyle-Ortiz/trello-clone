@@ -11,15 +11,11 @@ class SessionsController < ApplicationController
 
      def create
           user = User.find_by_email(params[:email])
-          if user.authenticate!(params[:password])
+          if user. present? && user.authenticate(params[:password])
                session[:user_id] = user.id
                render json: user
           else 
-               render json: {error: "Failed to Log in"}
+               render json: {error: "Invalid Email or Password"}, status: :unprocessable_entity
           end
-
-     rescue ActiveRecord::RecordInvalid => e
-          render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
      end
-
 end

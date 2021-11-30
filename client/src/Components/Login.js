@@ -34,7 +34,10 @@ function Login({user,setUser}) {
                if (r.ok) {
                     r.json().then((user)=> setUser(user));
                } else {
-                    r.json().then((error)=> setErrors(error));
+                    r.json().then((error)=> {
+                         setErrors(error.error)
+                    });
+
                }
           });
           setValues(formValues);
@@ -44,6 +47,7 @@ function Login({user,setUser}) {
           <div className="signup-login-form">
                <div id="email-pass-input">
                     <h1 className="signup-login-header">Log in to Easy Boards</h1>
+                    {errors? <div className="error-div">{errors}</div> : null}
                     <form action="submit" onSubmit={(e)=> formSubmission(e)}>
                          <input type="text" name="email" onChange={(event)=> handleInputChange(event)}className="form"placeholder="Enter email" value={values.email}/>
                          <input type="password" name="password" onChange={(event)=> handleInputChange(event)}className="form"placeholder="Enter password" value={values.password}/>
