@@ -21,8 +21,14 @@ function Login({user,setUser}) {
           )
      }
 
-     function formSubmission() {
-          fetch("http://localhost:3000/sessions")
+     function formSubmission(e) {
+          e.preventDefault();
+          console.log(values);
+          debugger;
+          fetch("/sessions", {
+               method: 'POST',
+               body: JSON.stringify(values)
+          })
           .then((r) => {
                if (r.ok) {
                     r.json().then((user)=> setUser(user));
@@ -37,7 +43,7 @@ function Login({user,setUser}) {
           <div className="signup-login-form">
                <div id="email-pass-input">
                     <h1 className="signup-login-header">Log in to Easy Boards</h1>
-                    <form action="submit" onSubmit={()=> formSubmission()}>
+                    <form action="submit" onSubmit={(e)=> formSubmission(e)}>
                          <input type="text" name="email" onChange={(event)=> handleInputChange(event)}className="form"placeholder="Enter email" value={values.email}/>
                          <input type="password" name="password" onChange={(event)=> handleInputChange(event)}className="form"placeholder="Enter password" value={values.password}/>
                          <input type="submit" className="active-login-signup-button" value="Login"/>
