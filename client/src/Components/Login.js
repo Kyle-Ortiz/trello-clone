@@ -54,6 +54,11 @@ function Login({user,setUser}) {
                          <input type="submit" className="active-login-signup-button" value="Login"/>
                     </form>
                </div>
+               <hr className="line-separator"/>
+               <div className="help-links-container">
+                    <a className="help-link"href="/signup">Signup for an Account</a>
+                    <a className="help-link"href="#">Forgot Password?</a>
+               </div>
           </div>
      )
 }

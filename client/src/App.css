@@ -58,9 +58,11 @@ a {
   background-color: #0051cc;
 }
 .signup-login-form {
-  max-width: 585px;
+  max-width: 500px;
   margin: 0 auto;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .signup-login-header{
   text-align: center;
@@ -74,9 +76,6 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-#continue-button {
-
 }
 .form {
   font-size: 14px;
@@ -98,4 +97,32 @@ form {
   margin-bottom: 14px;
   padding-top: 3px;
   padding-bottom: 3px;
+}
+.active-login-signup-button {
+  width: 65%;
+  background-color: #5AAC44;
+  border: 0px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #fff;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.active-login-signup-button:hover {
+  background-color: #61BD4F;
+}
+.line-separator {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  margin-bottom: 14px;
+  width: 65%;
+}
+.help-links {
+  text-decoration: none;
+}
+.help-link {
+  text-decoration: hyperlink;
 }
