@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState} from "react";
+import LogoTitle from './LogoTitle';
 
 
 function Login({user,setUser}) {
@@ -47,10 +48,7 @@ function Login({user,setUser}) {
           <div className="container">
                <div className="left-column"></div>
                <div className="mid-column">
-                    <div className="login-big-header">
-                         <img id="image-big"src="https://i.ibb.co/XXRF8hy/2dc7b9004b6948018984e5c013ec7771.png" alt="Logo" />
-                         <h2 className="image-title">Easy Boards</h2>
-                    </div>
+                    <LogoTitle />
                     <div className="signup-login-form">
                          <div id="email-pass-input">
                          <h1 className="signup-login-header">Log in to Easy Boards</h1>
