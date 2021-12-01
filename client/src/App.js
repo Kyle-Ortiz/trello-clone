@@ -3,6 +3,7 @@ import Header from './Components/Header';
 import Signup from './Components/Signup'
 import Login from './Components/Login'
 import Homepage from './Components/Homepage'
+import Dashboard from './Components/Dashboard';
 import {useState, useEffect} from 'react';
 import {
   Routes,
@@ -28,6 +29,7 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/home" element={<Homepage />}/>
+          <Route path="/dashboard" element={<Dashboard />}/>
         </Routes>
         {user ? <p>Welcome, {user.username}</p> : <p>Welcome, please log in</p>}
     </div>
