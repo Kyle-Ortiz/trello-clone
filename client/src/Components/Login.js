@@ -44,22 +44,34 @@ function Login({user,setUser}) {
      }
 
      return (
-          <div className="signup-login-form">
-               <div id="email-pass-input">
-                    <h1 className="signup-login-header">Log in to Easy Boards</h1>
-                    {errors? <div className="error-div">{errors}</div> : null}
-                    <form action="submit" onSubmit={(e)=> formSubmission(e)}>
-                         <input type="text" name="email" onChange={(event)=> handleInputChange(event)}className="form"placeholder="Enter email" value={values.email}/>
-                         <input type="password" name="password" onChange={(event)=> handleInputChange(event)}className="form"placeholder="Enter password" value={values.password}/>
-                         <input type="submit" className="active-login-signup-button" value="Login"/>
-                    </form>
+          <div className="container">
+               <div className="left-column"></div>
+               <div className="mid-column">
+                    <div className="login-big-header">
+                         <img id="image-big"src="https://i.ibb.co/XXRF8hy/2dc7b9004b6948018984e5c013ec7771.png" alt="Logo" />
+                         <h2 className="image-title">Easy Boards</h2>
+                    </div>
+                    <div className="signup-login-form">
+                         <div id="email-pass-input">
+                         <h1 className="signup-login-header">Log in to Easy Boards</h1>
+                         {errors? <div className="error-div">{errors}</div> : null}
+                         <form action="submit" onSubmit={(e)=> formSubmission(e)}>
+                              <input type="text" name="email" onFocus={()=> setErrors(null)} onChange={(event)=> handleInputChange(event)}className="form"placeholder="Enter email" value={values.email}/>
+                              <input type="password" name="password" onFocus={()=> setErrors(null)} onChange={(event)=> handleInputChange(event)}className="form"placeholder="Enter password" value={values.password}/>
+                              <input type="submit" className="active-login-signup-button" value="Login"/>
+                         </form>
+                    </div>
+                    <hr className="line-separator"/>
+                    <div className="help-links-container">
+                         <a id="help-signup-link"href="/signup">Sign up for an Account</a>
+                         <a id="help-password-link"href="/forgot">Forgot Password?</a>
+                    </div>
                </div>
-               <hr className="line-separator"/>
-               <div className="help-links-container">
-                    <a id="help-signup-link"href="/signup">Sign up for an Account</a>
-                    <a id="help-password-link"href="#">Forgot Password?</a>
                </div>
+               
+               <div className="right-column"></div>
           </div>
+          
      )
 }
 
