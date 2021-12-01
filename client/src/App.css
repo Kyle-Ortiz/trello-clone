@@ -121,8 +121,17 @@ form {
   width: 65%;
 }
 .help-links {
-  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.help-link {
-  text-decoration: hyperlink;
+#help-signup-link {
+  text-decoration: underline;
+  color: #0645AD;
+  margin-right: 10px;
+}
+#help-password-link {
+  text-decoration: underline;
+  color: #0645AD ;
+  margin-left: 10px;
 }

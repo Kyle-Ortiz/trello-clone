@@ -56,8 +56,8 @@ function Login({user,setUser}) {
                </div>
                <hr className="line-separator"/>
                <div className="help-links-container">
-                    <a className="help-link"href="/signup">Signup for an Account</a>
-                    <a className="help-link"href="#">Forgot Password?</a>
+                    <a id="help-signup-link"href="/signup">Sign up for an Account</a>
+                    <a id="help-password-link"href="#">Forgot Password?</a>
                </div>
           </div>
      )
