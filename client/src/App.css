@@ -173,3 +173,13 @@ form {
   width: 40px;
   margin-right: 8px;
 }
+#board-search {
+  padding: 5px 5px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  opacity: 0.9;
+}
+#board-search:hover {
+  opacity: 1;
+}

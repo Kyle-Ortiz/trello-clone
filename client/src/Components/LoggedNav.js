@@ -1,6 +1,11 @@
 import React from 'react'
+import {useState} from 'react'
+import { VscAccount } from "react-icons/vsc";
+import { BsFillBellFill } from "react-icons/bs";
 
 function LoggedNav() {
+     const [searchVal, setSearchVal] = useState("");
+
      return (
           <div className="dash-nav">
                <div className="image-container">
@@ -8,11 +13,11 @@ function LoggedNav() {
                     <h3>Easy Boards</h3>
                </div>
                <div className="search-field">
-                    <input type="text" placeholder="Search for a board"/>
+                    <input type="text" id="board-search" placeholder="Search for a board" onChange={(e)=> setSearchVal(e.target.value)}value={searchVal}/>
                </div>
                <div className="account-notification">
-                    <img src="https://i.ibb.co/sWty2kW/avatar.png" alt="profile picture" />
-                    <img src="" alt="notification bell" />
+                    <VscAccount />
+                    <BsFillBellFill />
                </div>
           </div>
      )
