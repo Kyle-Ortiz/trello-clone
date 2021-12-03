@@ -183,3 +183,12 @@ form {
 #board-search:hover {
   opacity: 1;
 }
+.search-field {
+  margin-right: 15px;
+}
+.account-notification {
+  width: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
