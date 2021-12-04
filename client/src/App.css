@@ -192,3 +192,12 @@ form {
   flex-direction: row;
   justify-content: space-between;
 }
+.categories { 
+  display:flex;
+  width: 325px;
+  justify-content: space-between;
+  margin-right: 100px;
+}
+.categories a:hover {
+  background-color: blue; 
+}
