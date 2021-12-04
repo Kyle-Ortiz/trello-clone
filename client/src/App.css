@@ -198,6 +198,14 @@ form {
   justify-content: space-between;
   margin-right: 100px;
 }
+.categories a {
+  padding: 3px;
+  border: 1px solid transparent;
+  margin: 0px auto;
+}
 .categories a:hover {
-  background-color: blue; 
+  border: 1px solid white;
+  padding: 3px;
+  background-color: #6082b6; 
+  border-radius: 4px;
 }
