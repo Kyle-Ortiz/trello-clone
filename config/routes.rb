@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cards
   resources :users
   resources :sessions, only: [:index,:create]
   # Routing logic: fallback requests for React Router.
