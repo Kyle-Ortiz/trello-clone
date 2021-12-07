@@ -1,9 +1,11 @@
 import React from 'react'
 import {useState} from "react";
 import LogoTitle from './LogoTitle';
+import {useNavigate} from "react-router-dom"
 
 
 function Login({user,setUser}) {
+     const navigate = useNavigate();
      const formValues = {
           email : "",
           password : "",  
@@ -34,6 +36,8 @@ function Login({user,setUser}) {
           .then((r) => {
                if (r.ok) {
                     r.json().then((user)=> setUser(user));
+                    navigate('/dashboard');
+
                } else {
                     r.json().then((error)=> {
                          setErrors(error.error)
