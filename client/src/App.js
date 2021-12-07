@@ -15,15 +15,17 @@ import {
   selector,
   useRecoilState,
   useRecoilValue,
+  useSetRecoilState
 } from 'recoil';
 
-const initialUserState = atom({
-  key: "initialUserState",
-  defaultValue: null
+const userState = atom({
+  key: "userState",
+  default: null,
 });
 
 function App() {
-  const [user,setUser] = useRecoilState(initialUserState);
+  const user = useRecoilValue(userState);
+  const setUser = useSetRecoilState(userState)
 
   useEffect(()=> {
     fetch('/sessions').then(r => r.json()).then((data)=> {
