@@ -15,13 +15,13 @@ import {
   useRecoilState
 } from 'recoil';
 
-const userState = atom({
+export const userState = atom({
   key: "userState",
   default: null,
 });
 
 function App() {
-  const [user,setUser] = useRecoilState(userState);
+  const [user,setUser] = useState(null);
 
   useEffect(()=> {
     fetch('/sessions').then(r => r.json()).then((data)=> {

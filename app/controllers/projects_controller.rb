@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
      def show
-          projects = Project.find_by_user_id(params[:user_id])
+          user = User.find_by!(id: params[:id])
+          projects = user.projects
           render json: projects
      end
 end
