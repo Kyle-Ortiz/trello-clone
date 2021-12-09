@@ -10,12 +10,9 @@ import {
   Route
 } from "react-router-dom";
 import {
-  RecoilRoot,
   atom,
-  selector,
-  useRecoilState,
   useRecoilValue,
-  useSetRecoilState
+  useRecoilState
 } from 'recoil';
 
 const userState = atom({
@@ -24,8 +21,7 @@ const userState = atom({
 });
 
 function App() {
-  const user = useRecoilValue(userState);
-  const setUser = useSetRecoilState(userState)
+  const [user,setUser] = useRecoilState(userState);
 
   useEffect(()=> {
     fetch('/sessions').then(r => r.json()).then((data)=> {
@@ -39,14 +35,12 @@ function App() {
 
   return (
     <div className="App">
-      <RecoilRoot>
         <Routes>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login setUser={setUser}/>}/>
           <Route path="/home" element={<Homepage />}/>
           <Route path="/dashboard" element={<Dashboard user={user}/>}/>
         </Routes>
-      </RecoilRoot>
         {user ? <p>Welcome, {user.username}</p> : <p>Welcome, please log in</p>}
     </div>
   );
