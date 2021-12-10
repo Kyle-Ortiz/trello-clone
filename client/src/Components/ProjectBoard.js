@@ -1,7 +1,14 @@
 import React from 'react'
 import List from './List'
+import {useState, useEffect} from 'react'
 
-function ProjectBoard() {
+function ProjectBoard({projectId}) {
+     const [lists,setLists] = useState(null);
+     const [cards,setCards] = useState(null);
+
+     useEffect(() => {
+          
+     },[])
 
 
      function listMapper(lists) {

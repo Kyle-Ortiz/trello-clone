@@ -6,4 +6,5 @@ class ListsController < ApplicationController
      def create 
          new_list = List.create!(name: params[:name])
      end
+
 end
