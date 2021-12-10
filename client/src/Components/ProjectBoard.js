@@ -7,7 +7,14 @@ function ProjectBoard({projectId}) {
      const [cards,setCards] = useState(null);
 
      useEffect(() => {
-          
+          fetch(`/projects/${projectId}`).then((res) => {
+               if (res.ok) {
+                    res.json().then((project)=> {
+                         setLists(project.lists);
+                         setCards(project.cards);
+                    });
+               }
+          })
      },[])
 
 

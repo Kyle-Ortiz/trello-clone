@@ -3,10 +3,12 @@ import LoggedNav from './LoggedNav'
 import {useEffect,useState} from 'react'
 import {useRecoilState,useRecoilValue} from 'recoil'
 import ProjectCard from './ProjectCard'
+import ProjectBoard from './ProjectBoard'
 
 function Dashboard() {
      const[errors,setErrors] = useState(null);
      const[userProjects,setUserProjects] = useState(null);
+     const[inProject,setInProject] = useState(false);
 
      useEffect(() => {
           fetch(`/projects/${1}`).then((r) => {
@@ -21,7 +23,7 @@ function Dashboard() {
 
      function cardMapper(projArr) {
           const cards = projArr.map((project) => {
-               return <ProjectCard name={project.name} key={project.id} />
+               return <ProjectCard name={project.name} key={project.id} setInProject={setInProject}/>
           })
           return cards
      }
@@ -29,10 +31,16 @@ function Dashboard() {
      return (
           <div className="dashboard">
                <LoggedNav />
-               <h2>Your Projects</h2>
-               <div className="project-card-container">
-                    {userProjects ? cardMapper(userProjects) : null}
+               {inProject ? <ProjectBoard projectId={}/>: 
+               <div className="dashboard-list-header"> 
+                    <h2>Your Projects</h2>
+                    <div className="project-card-container">
+                         {userProjects ? cardMapper(userProjects) : null}
+                    </div>
                </div>
+                    
+               }
+               
           </div>
      )
 }
