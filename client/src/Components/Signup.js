@@ -20,6 +20,24 @@ function Signup() {
 
      function formSubmit(e) {
           e.preventDefault();
+
+          const newUserObject = {
+               email: email,
+               username: username,
+               password: password,
+          }
+
+          fetch("/signup", {
+               method: 'POST',
+               headers: {
+                    'Content-Type': 'application/json',
+                  },
+               body: JSON.stringify(newUserObject)
+          }).then((res) => {
+               if (res.ok) {
+                    
+               }
+          })
      }
      return (
           <div className="container">
@@ -28,11 +46,11 @@ function Signup() {
                     <div className="signup-login-form">
                          <div id="email-input">
                          <h1 className="signup-login-header">Sign up for your account</h1>
-                         <form action="submit" onSubmit={()=> formSubmit(e)}>
+                         <form action="submit" onSubmit={(e)=> formSubmit(e)}>
                               <input type="text" className="form"onChange={(e)=> changeHandler(e,email)}placeholder="Enter email" value={email}/>
                               <input type="text"  className="form" onChange={(e) => changeHandler(e,username)}placeholder="Enter username" value={username}/>
                               <input type="text" className="form" onChange={(e)=> changeHandler(e,password)}placeholder="Enter password" value={password}/>
-                              <input type="submit" id="continue-button" value="Continue" />
+                              <input type="submit" className="active-login-signup-button" value="Sign up!" />
                          </form>
                          </div>
                     </div>
