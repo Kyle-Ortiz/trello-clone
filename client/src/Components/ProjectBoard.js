@@ -18,11 +18,11 @@ function ProjectBoard({projectId}) {
      },[])
 
 
-     function listMapper(lists) {
-          const lists = lists.map((list) => {
-               <List key={list.id} />
-          })
-     }
+     // function listMapper(lists) {
+     //      const lists = lists.map((list) => {
+     //           <List key={list.id} />
+     //      })
+     // }
 
      return (
           <div id="project-board">

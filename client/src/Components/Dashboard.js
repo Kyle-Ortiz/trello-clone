@@ -31,7 +31,7 @@ function Dashboard() {
      return (
           <div className="dashboard">
                <LoggedNav />
-               {inProject ? <ProjectBoard projectId={}/>: 
+               {inProject ? <ProjectBoard projectId={1}/>: 
                <div className="dashboard-list-header"> 
                     <h2>Your Projects</h2>
                     <div className="project-card-container">

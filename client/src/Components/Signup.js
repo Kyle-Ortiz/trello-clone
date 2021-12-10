@@ -5,15 +5,22 @@ import LogoTitle from './LogoTitle';
 
 function Signup() {
      const [email,setEmail] = useState("");
-     const [validator,setValidator] = useState(false);
+     const [password, setPassword] = useState("");
+     const [username,setUsername] = useState("");
 
-     function formController(e,email) {
-          setEmail(e.target.value);
-          if (email.includes("@")) {
-               setValidator(()=> !validator);
-          }
+     function changeHandler(e, name) {
+          if (name === email) {
+               setEmail(e.target.value);
+          } else if (name === username) {
+               setUsername(e.target.value);
+          } else if (name === password) {
+               setPassword(e.target.value);
+          }   
      }
 
+     function formSubmit(e) {
+          e.preventDefault();
+     }
      return (
           <div className="container">
                <div className="mid-column">
@@ -21,9 +28,11 @@ function Signup() {
                     <div className="signup-login-form">
                          <div id="email-input">
                          <h1 className="signup-login-header">Sign up for your account</h1>
-                         <form action="submit">
-                              <input type="text" className="form"onChange={(e)=> formController(e,email)}placeholder="Enter email" value={email}/>
-                              <input type="submit" id="continue-button" value="Continue" disabled={validator}/>
+                         <form action="submit" onSubmit={()=> formSubmit(e)}>
+                              <input type="text" className="form"onChange={(e)=> changeHandler(e,email)}placeholder="Enter email" value={email}/>
+                              <input type="text"  className="form" onChange={(e) => changeHandler(e,username)}placeholder="Enter username" value={username}/>
+                              <input type="text" className="form" onChange={(e)=> changeHandler(e,password)}placeholder="Enter password" value={password}/>
+                              <input type="submit" id="continue-button" value="Continue" />
                          </form>
                          </div>
                     </div>

@@ -8,7 +8,7 @@ function ProjectCard({name, key,setInProject}) {
      }
 
      return (
-          <div className="project-card" onClick={}>
+          <div className="project-card" onClick={() => cardClicker()}>
                <h3>{name}</h3>
           </div>
      )
