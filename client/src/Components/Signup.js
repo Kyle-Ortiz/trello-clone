@@ -5,8 +5,8 @@ import Login from './Login'
 import {useNavigate} from 'react-router-dom'
 
 
-function Signup() {
-     const [email,setEmail] = useState("");
+function Signup({homeEmail = ""}) {
+     const [email,setEmail] = useState(homeEmail);
      const [password, setPassword] = useState("");
      const [username,setUsername] = useState("");
      const [errors,setErrors] = useState(null);
@@ -49,7 +49,7 @@ function Signup() {
                body: JSON.stringify(newUserObject)
           }).then((res) => {
                if (res.ok) {
-                    
+                    navigate("/login");
                } else {
                     res.json().then((errors)=>{
                     setErrors(errors)
