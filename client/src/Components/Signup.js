@@ -66,9 +66,9 @@ function Signup() {
                          <h1 className="signup-login-header">Sign up for your account</h1>
                          {errors ? <div className="error-div">{serverErrors(errors)}</div> : null}
                          <form action="submit" onSubmit={(e)=> formSubmit(e)}>
-                              <input type="text" className="form"onChange={(e)=> changeHandler(e,email)}placeholder="Enter email" value={email}/>
-                              <input type="text"  className="form" onChange={(e) => changeHandler(e,username)}placeholder="Enter username" value={username}/>
-                              <input type="text" className="form" onChange={(e)=> changeHandler(e,password)}placeholder="Enter password" value={password}/>
+                              <input type="text" onFocus={()=> setErrors(null)}className="form"onChange={(e)=> changeHandler(e,email)}placeholder="Enter email" value={email}/>
+                              <input type="text"  onFocus={()=> setErrors(null)}className="form" onChange={(e) => changeHandler(e,username)}placeholder="Enter username" value={username}/>
+                              <input type="text" onFocus={()=> setErrors(null)}className="form" onChange={(e)=> changeHandler(e,password)}placeholder="Enter password" value={password}/>
                               <input type="submit" className="active-login-signup-button" value="Sign up!" />
                          </form>
                          </div>
