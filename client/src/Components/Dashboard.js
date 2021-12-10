@@ -19,17 +19,19 @@ function Dashboard() {
           })
      }, [])
 
-     function mapUserProjects(userProjects) {
-          return userProjects.map((project) => {
-               <ProjectCard projectName={project.name} key={project.id} />
+     function cardMapper(projArr) {
+          const cards = projArr.map((project) => {
+               return <ProjectCard name={project.name} key={project.id} />
           })
+          return cards
      }
 
      return (
-          <div>
+          <div className="dashboard">
                <LoggedNav />
+               <h2>Your Projects</h2>
                <div className="project-card-container">
-                    {userProjects ? mapUserProjects(userProjects) : null}
+                    {userProjects ? cardMapper(userProjects) : null}
                </div>
           </div>
      )

@@ -1,9 +1,9 @@
 import React from 'react'
 
-function ProjectCard({projectName}) {
+function ProjectCard({name}) {
      return (
           <div className="project-card">
-               {projectName}
+               <h3>{name}</h3>
           </div>
      )
 }
