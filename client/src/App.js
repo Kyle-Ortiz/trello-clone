@@ -39,6 +39,7 @@ function App() {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/login" element={<Login setUser={setUser}/>}/>
           <Route path="/home" element={<Homepage />}/>
+          <Route path="/" element={<Homepage />}/>
           <Route path="/dashboard" element={<Dashboard user={user}/>}/>
         </Routes>
         {user ? <p>Welcome, {user.username}</p> : <p>Welcome, please log in</p>}
