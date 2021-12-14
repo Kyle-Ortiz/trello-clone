@@ -7,19 +7,28 @@ import ProjectBoard from './ProjectBoard'
 
 function Dashboard({user}) {
      const[errors,setErrors] = useState(null);
+     const [isloading, setIsloading] = useState(true)
      const[userProjects,setUserProjects] = useState(null);
      const[inProject,setInProject] = useState(false);
 
      useEffect(() => {
-          fetch(`/projects/${user.id}`).then((r) => {
-               if (r.ok) {
-                    r.json().then((projects) => {setUserProjects(projects)})
-               }
-               else {
+
+          if (user) {
+               fetch(`/projects/${user.id}`).then((r) => {
+                    if (r.ok) {
+                         r.json().then((projects) => {
+                              setUserProjects(projects);
+                              setIsloading(false);
+                         })
+                    }
+                         else {
                     r.json().then((errors)=> setErrors(errors))
-               }
+                    }
           })
-     }, [])
+          } else {
+               
+          } 
+     }, [user])
 
      function cardMapper(projArr) {
           const cards = projArr.map((project) => {
@@ -34,9 +43,6 @@ function Dashboard({user}) {
                {inProject ? <ProjectBoard projectId={1}/>: 
                <div className="dashboard-list-header"> 
                     <h2>Your Projects</h2>
-                    <div className="project-card-container">
-                         {userProjects ? cardMapper(userProjects) : null}
-                    </div>
                </div>
                     
                }
