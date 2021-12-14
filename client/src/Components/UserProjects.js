@@ -1,6 +1,7 @@
 import React from 'react'
+import ProjectCard from './ProjectCard'
 
-function UserProjects({projects}) {
+function UserProjects({projects, setInProject}) {
 
      function cardMapper(projArr) {
           const cards = projArr.map((project) => {

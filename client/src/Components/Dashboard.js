@@ -4,6 +4,7 @@ import {useEffect,useState} from 'react'
 import {useRecoilState,useRecoilValue} from 'recoil'
 import ProjectCard from './ProjectCard'
 import ProjectBoard from './ProjectBoard'
+import UserProjects from './UserProjects'
 
 function Dashboard({user}) {
      const[errors,setErrors] = useState(null);
@@ -43,6 +44,7 @@ function Dashboard({user}) {
                {inProject ? <ProjectBoard projectId={1}/>: 
                <div className="dashboard-list-header"> 
                     <h2>Your Projects</h2>
+                    {!isloading ? <UserProjects projects={userProjects} setInProject={setInProject} />: <p>Please wait while we load your projects...</p>}
                </div>
                     
                }
