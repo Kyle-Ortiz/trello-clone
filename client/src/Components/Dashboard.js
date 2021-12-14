@@ -1,17 +1,17 @@
 import React from 'react'
 import LoggedNav from './LoggedNav'
 import {useEffect,useState} from 'react'
-import {useRecoilState,useRecoilValue} from 'recoil'
-import ProjectCard from './ProjectCard'
 import ProjectBoard from './ProjectBoard'
 import UserProjects from './UserProjects'
+import ProjectForm from './ProjectForm'
 
 function Dashboard({user}) {
      const[errors,setErrors] = useState(null);
      const[isloading, setIsloading] = useState(true)
      const[userProjects,setUserProjects] = useState(null);
      const[inProject,setInProject] = useState(false);
-     const[clickedId, setClickedId] = useState(null)
+     const[clickedId, setClickedId] = useState(null);
+     const[button, setButton] = useState(false)
 
      useEffect(() => {
 
@@ -31,6 +31,7 @@ function Dashboard({user}) {
                
           } 
      }, [user])
+
      
 
      return (
@@ -40,6 +41,11 @@ function Dashboard({user}) {
                <div className="dashboard-list-header"> 
                     <h2>Your Projects</h2>
                     {!isloading ? <UserProjects projects={userProjects} setClickedId={setClickedId} setInProject={setInProject} />: <p>Please wait while we load your projects...</p>}
+                    <div>
+                         <button onClick={() => setButton(!button)}>New Project</button>
+                         {button ? <ProjectForm user={user} /> : null}
+                    </div>
+                    
                </div>
                     
                }
