@@ -26,7 +26,7 @@ function ProjectBoard({projectId}) {
 
      return (
           <div id="project-board">
-               
+               {projectId}
           </div>
      )
 }

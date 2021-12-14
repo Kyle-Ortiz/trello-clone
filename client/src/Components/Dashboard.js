@@ -8,9 +8,10 @@ import UserProjects from './UserProjects'
 
 function Dashboard({user}) {
      const[errors,setErrors] = useState(null);
-     const [isloading, setIsloading] = useState(true)
+     const[isloading, setIsloading] = useState(true)
      const[userProjects,setUserProjects] = useState(null);
      const[inProject,setInProject] = useState(false);
+     const[clickedId, setClickedId] = useState(null)
 
      useEffect(() => {
 
@@ -30,21 +31,15 @@ function Dashboard({user}) {
                
           } 
      }, [user])
-
-     function cardMapper(projArr) {
-          const cards = projArr.map((project) => {
-               return <ProjectCard name={project.name} key={project.id} setInProject={setInProject}/>
-          })
-          return cards
-     }
+     
 
      return (
           <div className="dashboard">
                <LoggedNav />
-               {inProject ? <ProjectBoard projectId={1}/>: 
+               {inProject ? <ProjectBoard projectId={clickedId}/>: 
                <div className="dashboard-list-header"> 
                     <h2>Your Projects</h2>
-                    {!isloading ? <UserProjects projects={userProjects} setInProject={setInProject} />: <p>Please wait while we load your projects...</p>}
+                    {!isloading ? <UserProjects projects={userProjects} setClickedId={setClickedId} setInProject={setInProject} />: <p>Please wait while we load your projects...</p>}
                </div>
                     
                }
