@@ -4,4 +4,5 @@ class ProjectsController < ApplicationController
           projects = user.projects
           render json: projects
      end
+
 end

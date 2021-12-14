@@ -5,13 +5,13 @@ import {useRecoilState,useRecoilValue} from 'recoil'
 import ProjectCard from './ProjectCard'
 import ProjectBoard from './ProjectBoard'
 
-function Dashboard() {
+function Dashboard({user}) {
      const[errors,setErrors] = useState(null);
      const[userProjects,setUserProjects] = useState(null);
      const[inProject,setInProject] = useState(false);
 
      useEffect(() => {
-          fetch(`/projects/${1}`).then((r) => {
+          fetch(`/projects/${user.id}`).then((r) => {
                if (r.ok) {
                     r.json().then((projects) => {setUserProjects(projects)})
                }
