@@ -1,25 +1,36 @@
 import React from 'react'
 import {useState} from 'react'
 
-function ProjectForm(user) {
+function ProjectForm({user,setUserProjects,setButton}) {
      const [newProj, setNewProj] = useState("")
 
-     const formSubmit = () => {
-          fetch("/user/projects", {
+     const formSubmit = (e) => {
+          e.preventDefault()
+          fetch("/projects", {
                method: "POST",
                headers: {
                     "Content-Type": "application/json",
                },
                body: JSON.stringify({
-                    user: user.id,
-                    "project-name": newProj
+                    "user_id": user.id,
+                    "project_name": newProj
                }),
+          }).then((res) => {
+               if (res.ok) {
+                    res.json().then((projects)=> {
+                         setUserProjects(projects)
+                    })
+               } else {
+
+               }
           })
+          setNewProj("")
+          setButton(false)
      }
 
      return (
           <div>
-               <form className="project-form"action="submit" onSubmit={()=> formSubmit}>
+               <form className="project-form"action="submit" onSubmit={(e)=> formSubmit(e)}>
                     <input type="text" value={newProj} onChange={(e)=> setNewProj(e.target.value)}/>
                     <input type="submit" />
                </form>
