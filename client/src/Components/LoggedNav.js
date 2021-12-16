@@ -18,7 +18,7 @@ function LoggedNav() {
                <div className="categories">
                     <a href="#">All</a>
                     <a href="#">Favorited</a>
-                    <a href="#">Your Boards</a>
+                    <a href="/dashboard">Your Boards</a>
                     <a href="#">Shared with you</a>
                </div>
                <div className="account-notification">
