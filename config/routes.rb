@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :projects
   resources :cards
-  resources :users
+  
+  resources :users do 
+    resources :projects, shallow: true
+  end
   resources :sessions, only: [:index,:create]
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
