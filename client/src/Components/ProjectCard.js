@@ -10,7 +10,8 @@ function ProjectCard({name, pId,setInProject, setClickedId}) {
      }
 
      function deleteHandler(e) {
-          if (confirm('Are you sure you want to delete this project?') === true) {
+          e.stopPropagation();
+          if (window.confirm('Are you sure you want to delete this project?') === true) {
                fetch(`projects/${pId}`, {
                     method: "DELETE",
                     headers: {
