@@ -16,8 +16,18 @@ class ProjectsController < ApplicationController
      def create 
           user = User.find_by!(id: params[:user_id])
           if user 
-               user.projects.create!(name: params[:project_name])
-               render json: user.projects
+               user.projects.create!(name: params[:name])
+               render json: user.projects.last, status: :created
+          end
+     end
+
+     def destroy
+          project = Project.find_by(id: params[:id])
+          if project 
+            project.destroy
+            render json: project, status: :ok
+          else 
+               render json: {error: 'Project not found'}, status: :unprocessable_entity
           end
      end
 end
