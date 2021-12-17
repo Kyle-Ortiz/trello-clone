@@ -1,7 +1,9 @@
 import React from 'react'
 // import List from './List'
 // import {useState, useEffect} from 'react'
-
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import List from './List';
+import Card from './Card';
 
 function ProjectBoard({projectId}) {
      // const [lists,setLists] = useState(null);
@@ -26,9 +28,12 @@ function ProjectBoard({projectId}) {
      // }
 
      return (
-          <div id="project-board">
-               {projectId}
-          </div>
+          <DragDropContext>
+                    <div id="project-board">
+                         {projectId}
+                         <List cards={[1,2,3]} />
+                    </div>
+          </DragDropContext>
      )
 }
 

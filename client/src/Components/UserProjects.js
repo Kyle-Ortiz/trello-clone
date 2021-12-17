@@ -5,7 +5,7 @@ function UserProjects({projects, setInProject, setProjects,setClickedId}) {
 
      function cardMapper(projArr) {
           const cards = projArr.map((project) => {
-               return <ProjectCard pId={project.id} setProjects={setProjects} projects={projects} setInProject={setInProject} name={project.name} setClickedId={setClickedId} key={project.id} setInProject={setInProject}/>
+               return <ProjectCard pId={project.id} setProjects={setProjects} projects={projects} name={project.name} setClickedId={setClickedId} key={project.id} setInProject={setInProject}/>
           })
           return cards
      }
