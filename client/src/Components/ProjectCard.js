@@ -1,8 +1,8 @@
 import React from 'react'
-import {useNavigate} from 'react-router-dom'
+// import {useNavigate} from 'react-router-dom'
 
 function ProjectCard({name, pId,setInProject, setClickedId}) {
-     const navigate = useNavigate();
+     // const navigate = useNavigate();
      function cardClicker(e) {
           setInProject(true);
           debugger;

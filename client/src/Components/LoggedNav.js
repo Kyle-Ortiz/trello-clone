@@ -16,10 +16,9 @@ function LoggedNav() {
                     <input type="text" id="board-search" placeholder="Search for a board" onChange={(e)=> setSearchVal(e.target.value)}value={searchVal}/>
                </div>
                <div className="categories">
-                    <a href="#">All</a>
-                    <a href="#">Favorited</a>
+                    <a href="/Favorites">Favorited</a>
                     <a href="/dashboard">Your Boards</a>
-                    <a href="#">Shared with you</a>
+                    <a href="/Shared">Shared with you</a>
                </div>
                <div className="account-notification">
                     <VscAccount />

@@ -1,5 +1,4 @@
 import './App.css';
-import Header from './Components/Header';
 import Signup from './Components/Signup'
 import Login from './Components/Login'
 import Homepage from './Components/Homepage'
@@ -9,16 +8,6 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import {
-  atom,
-  useRecoilValue,
-  useRecoilState
-} from 'recoil';
-
-export const userState = atom({
-  key: "userState",
-  default: null,
-});
 
 function App() {
   const [user,setUser] = useState(null);

@@ -4,7 +4,6 @@ import ProjectCard from './ProjectCard'
 function UserProjects({projects, setInProject, setClickedId}) {
 
      function cardMapper(projArr) {
-          debugger;
           const cards = projArr.map((project) => {
                return <ProjectCard pId={project.id} name={project.name} setClickedId={setClickedId} key={project.id} setInProject={setInProject}/>
           })
@@ -13,7 +12,7 @@ function UserProjects({projects, setInProject, setClickedId}) {
 
      return (
           <div className="project-card-container">
-               {cardMapper(projects)}
+               {projects ? cardMapper(projects): null}
           </div>
      )
 }

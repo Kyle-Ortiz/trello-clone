@@ -43,9 +43,11 @@ function Dashboard({user}) {
                     {!isloading ? <UserProjects projects={userProjects} setClickedId={setClickedId} setInProject={setInProject} />: <p>Please wait while we load your projects...</p>}
                     <div>
                          <button onClick={() => setButton(!button)}>New Project</button>
-                         {button ? <ProjectForm user={user} setUserProjects={setUserProjects} setButton={setButton}/> : null}
+                         {button ? <ProjectForm user={user} setUserProjects={setUserProjects} projects={userProjects} setButton={setButton}/> : null}
                     </div>
-                    
+               <div className="errors-div">
+                    {errors ? errors : null}
+               </div>
                </div>
                     
                }
