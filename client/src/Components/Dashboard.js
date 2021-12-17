@@ -16,7 +16,7 @@ function Dashboard({user}) {
      useEffect(() => {
 
           if (user) {
-               fetch(`/projects/${user.id}`).then((r) => {
+               fetch(`users/${user.id}/projects/`).then((r) => {
                     if (r.ok) {
                          r.json().then((projects) => {
                               setUserProjects(projects);
