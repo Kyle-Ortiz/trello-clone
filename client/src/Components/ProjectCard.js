@@ -9,10 +9,28 @@ function ProjectCard({name, pId,setInProject, setClickedId}) {
           setClickedId(pId)
      }
 
+     function deleteHandler(e) {
+          if (confirm('Are you sure you want to delete this project?') === true) {
+               fetch(`projects/${pId}`, {
+                    method: "DELETE",
+                    headers: {
+                         "Content-Type": "application/json",
+                    }
+                    }).then((res) => {
+                         if (res.ok) {
+                           window.alert('Project deleted successfully')
+                         } else {
+                              window.alert('Project not deleted, try again later')
+                         }
+               });
+          };
+
+     }
+
      return (
           <div className="project-card" onClick={(e) => cardClicker(e)}>
                <h3>{name}</h3>
-               <button>Delete project</button>
+               <button onClick={(e) => deleteHandler(e)}>Delete project</button>
           </div>
      )
 }
