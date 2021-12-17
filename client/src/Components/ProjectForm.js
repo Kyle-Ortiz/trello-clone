@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 
-function ProjectForm({user,setUserProjects,setButton}) {
+function ProjectForm({user,projects,setUserProjects,setButton}) {
      const [newProj, setNewProj] = useState("")
 
      const formSubmit = (e) => {
@@ -17,8 +17,10 @@ function ProjectForm({user,setUserProjects,setButton}) {
                }),
           }).then((res) => {
                if (res.ok) {
-                    res.json().then((projects)=> {
-                         setUserProjects(projects)
+                    res.json().then((project)=> {
+                         console.log(project)
+                         debugger;
+                         setUserProjects([...projects,project])
                     })
                } else {
 
