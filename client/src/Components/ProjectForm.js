@@ -31,10 +31,10 @@ function ProjectForm({user,projects,setUserProjects,setButton}) {
      }
 
      return (
-          <div>
+          <div className="new-project-form">
                <form className="project-form"action="submit" onSubmit={(e)=> formSubmit(e)}>
-                    <input type="text" value={newProj} onChange={(e)=> setNewProj(e.target.value)}/>
-                    <input type="submit" />
+                    <input type="text" value={newProj} placeholder="Project name"onChange={(e)=> setNewProj(e.target.value)}/>
+                    <input type="submit" value="Create New Project"/>
                </form>
           </div>
      )
