@@ -12,6 +12,7 @@ function ProjectCard({name, pId,setInProject, setClickedId}) {
      return (
           <div className="project-card" onClick={(e) => cardClicker(e)}>
                <h3>{name}</h3>
+               <button>Delete project</button>
           </div>
      )
 }

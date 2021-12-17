@@ -6,14 +6,14 @@ function ProjectForm({user,setUserProjects,setButton}) {
 
      const formSubmit = (e) => {
           e.preventDefault()
-          fetch("/projects", {
+          fetch(`/users/${user.id}/projects`, {
                method: "POST",
                headers: {
                     "Content-Type": "application/json",
                },
                body: JSON.stringify({
                     "user_id": user.id,
-                    "project_name": newProj
+                    "name": newProj
                }),
           }).then((res) => {
                if (res.ok) {
