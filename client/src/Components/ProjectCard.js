@@ -1,7 +1,7 @@
 import React from 'react'
 // import {useNavigate} from 'react-router-dom'
 
-function ProjectCard({name, pId,setInProject, setClickedId}) {
+function ProjectCard({name, pId,setInProject,projects, setClickedId,setProjects}) {
      // const navigate = useNavigate();
      function cardClicker(e) {
           setInProject(true);
@@ -20,6 +20,7 @@ function ProjectCard({name, pId,setInProject, setClickedId}) {
                     }).then((res) => {
                          if (res.ok) {
                            window.alert('Project deleted successfully')
+                           setProjects(projects.filter(project => project.id !== pId))
                          } else {
                               window.alert('Project not deleted, try again later')
                          }
