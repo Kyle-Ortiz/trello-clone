@@ -5,8 +5,9 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import List from './List';
 import Card from './Card';
 import { useParams } from "react-router-dom"
+import LoggedNav from './LoggedNav';
 
-function ProjectBoard() {
+function ProjectBoard({setUser}) {
      const params = useParams();
      // const [lists,setLists] = useState(null);
      // const [cards,setCards] = useState(null);
@@ -36,7 +37,10 @@ function ProjectBoard() {
           //                <List cards={[1,2,3]} />
           //           </div>
           // </DragDropContext>
-          <div>{params.projectId}</div>
+          <div>
+               <LoggedNav setUser={setUser}/>
+               {params.projectId}
+               </div>
      )
 }
 

@@ -5,7 +5,7 @@ import ProjectBoard from './ProjectBoard'
 import UserProjects from './UserProjects'
 import ProjectForm from './ProjectForm'
 
-function Dashboard({user}) {
+function Dashboard({user, setUser}) {
      const[errors,setErrors] = useState(null);
      const[isloading, setIsloading] = useState(true)
      const[userProjects,setUserProjects] = useState(null);
@@ -35,7 +35,7 @@ function Dashboard({user}) {
 
      return (
           <div className="dashboard">
-               <LoggedNav />
+               <LoggedNav setUser={setUser}/>
                <div className="dashboard-list-header"> 
                     <h2>Your Projects</h2>
                     {!isloading ? <UserProjects projects={userProjects} setProjects={setUserProjects}setClickedId={setClickedId} />: <p>Please wait while we load your projects...</p>}

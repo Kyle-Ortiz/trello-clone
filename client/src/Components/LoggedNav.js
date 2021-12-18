@@ -2,8 +2,9 @@ import React from 'react'
 import {useState} from 'react'
 import { VscAccount } from "react-icons/vsc";
 import { BsFillBellFill } from "react-icons/bs";
+import LogoutButton from './LogoutButton'
 
-function LoggedNav() {
+function LoggedNav({setUser}) {
      const [searchVal, setSearchVal] = useState("");
 
      return (
@@ -23,7 +24,9 @@ function LoggedNav() {
                <div className="account-notification">
                     <VscAccount />
                     <BsFillBellFill />
+                    
                </div>
+               <LogoutButton setUser={setUser}/>
           </div>
      )
 }
