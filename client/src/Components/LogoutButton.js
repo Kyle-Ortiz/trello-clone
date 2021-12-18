@@ -6,9 +6,11 @@ function LogoutButton({user,setUser}) {
 
      const logout = () => {
           if (window.confirm('Are you sure you want to logout?') === true) {
-          navigate('/login')
-          setUser(null);
-          fetch('/logout')
+          
+          fetch("/logout", {
+               method: "DELETE",
+             }).then(() => setUser(null));
+             navigate('/login')
           }
      }
      return (
