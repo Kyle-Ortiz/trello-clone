@@ -5,7 +5,6 @@ function ProjectCard({name, pId,setInProject,projects, setClickedId,setProjects}
      // const navigate = useNavigate();
      function cardClicker(e) {
           setInProject(true);
-          debugger;
           setClickedId(pId)
      }
 
