@@ -8,6 +8,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import ProjectBoard from './Components/ProjectBoard'
 
 function App() {
   const [user,setUser] = useState(null);
@@ -30,6 +31,8 @@ function App() {
           <Route path="/home" element={<Homepage />}/>
           <Route path="/" element={<Homepage />}/>
           <Route path="/dashboard" element={<Dashboard user={user}/>}/>
+          <Route path="/projects/:projectId" element={<ProjectBoard user={user}/>}/>
+
         </Routes>
         {user ? <p>Welcome, {user.username}</p> : <p>Welcome, please log in</p>}
     </div>

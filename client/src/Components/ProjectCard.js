@@ -1,11 +1,11 @@
 import React from 'react'
-// import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 function ProjectCard({name, pId,setInProject,projects, setClickedId,setProjects}) {
-     // const navigate = useNavigate();
+     const navigate = useNavigate();
      function cardClicker(e) {
-          setInProject(true);
           setClickedId(pId)
+          navigate(`/projects/${pId}`)
      }
 
      function deleteHandler(e) {

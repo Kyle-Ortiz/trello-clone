@@ -9,7 +9,6 @@ function Dashboard({user}) {
      const[errors,setErrors] = useState(null);
      const[isloading, setIsloading] = useState(true)
      const[userProjects,setUserProjects] = useState(null);
-     const[inProject,setInProject] = useState(false);
      const[clickedId, setClickedId] = useState(null);
      const[button, setButton] = useState(false)
 
@@ -37,10 +36,9 @@ function Dashboard({user}) {
      return (
           <div className="dashboard">
                <LoggedNav />
-               {inProject ? <ProjectBoard projectId={clickedId}/>: 
                <div className="dashboard-list-header"> 
                     <h2>Your Projects</h2>
-                    {!isloading ? <UserProjects projects={userProjects} setProjects={setUserProjects}setClickedId={setClickedId} setInProject={setInProject} />: <p>Please wait while we load your projects...</p>}
+                    {!isloading ? <UserProjects projects={userProjects} setProjects={setUserProjects}setClickedId={setClickedId} />: <p>Please wait while we load your projects...</p>}
                     <div>
                          <button id="new-project" onClick={() => setButton(!button)}>New Project</button>
                          {button ? <ProjectForm user={user} projects={userProjects} setUserProjects={setUserProjects} setButton={setButton}/> : null}
@@ -49,8 +47,6 @@ function Dashboard({user}) {
                          {errors}
                     </div> : null}
                </div>
-                    
-               }
                
           </div>
      )

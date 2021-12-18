@@ -28,12 +28,13 @@ function ProjectBoard({projectId}) {
      // }
 
      return (
-          <DragDropContext>
-                    <div id="project-board">
-                         {projectId}
-                         <List cards={[1,2,3]} />
-                    </div>
-          </DragDropContext>
+          // <DragDropContext>
+          //           <div id="project-board">
+          //                {projectId}
+          //                <List cards={[1,2,3]} />
+          //           </div>
+          // </DragDropContext>
+          <div>test</div>
      )
 }
 
