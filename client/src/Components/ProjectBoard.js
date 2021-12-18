@@ -4,8 +4,10 @@ import React from 'react'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import List from './List';
 import Card from './Card';
+import { useParams } from "react-router-dom"
 
-function ProjectBoard({projectId}) {
+function ProjectBoard() {
+     const params = useParams();
      // const [lists,setLists] = useState(null);
      // const [cards,setCards] = useState(null);
 
@@ -34,7 +36,7 @@ function ProjectBoard({projectId}) {
           //                <List cards={[1,2,3]} />
           //           </div>
           // </DragDropContext>
-          <div>test</div>
+          <div>{params.projectId}</div>
      )
 }
 
