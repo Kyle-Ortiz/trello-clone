@@ -12,12 +12,18 @@ function List({cards}) {
      }
 
      return (
-          <Droppable>
-               <div>
-                    hello
-               </div>
-          </Droppable>
-          
+          <Droppable droppableId="droppable-1">
+  {(provided, snapshot) => (
+    <div
+      ref={provided.innerRef}
+      style={{ backgroundColor: snapshot.isDraggingOver ? 'blue' : 'grey' }}
+      {...provided.droppableProps}
+    >
+      I am a droppable!
+      {provided.placeholder}
+    </div>
+  )}
+</Droppable>
      )
 }
 

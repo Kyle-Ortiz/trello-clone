@@ -3,12 +3,17 @@ import { Draggable } from 'react-beautiful-dnd'
 
 function Card({text}) {
      return (
-          <Draggable>
-               <div className="project-card">
-                    <p>{text}</p>
-               </div>
-          </Draggable>
-          
+          <Draggable draggableId="draggable-1" index={0}>
+          {(provided, snapshot) => (
+            <div
+              ref={provided.innerRef}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+            >
+              <h4>My draggable</h4>
+            </div>
+          )}
+        </Draggable>;
      )
 }
 
