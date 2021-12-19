@@ -33,8 +33,7 @@ function ProjectBoard({setUser}) {
      return (
           <DragDropContext>
                     <div id="project-board">
-                         {params.projectId}
-                         {/* <List cards={[1,2,3]} /> */}
+                         <List cards={["1","2","3"]} />
                     </div>
           </DragDropContext>
      )
