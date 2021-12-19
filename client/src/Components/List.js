@@ -19,7 +19,7 @@ function List({cards}) {
       style={{ backgroundColor: snapshot.isDraggingOver ? 'blue' : 'grey' }}
       {...provided.droppableProps}
     >
-      I am a droppable!
+      <Card />
       {provided.placeholder}
     </div>
   )}

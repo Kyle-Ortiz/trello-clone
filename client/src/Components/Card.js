@@ -13,7 +13,7 @@ function Card({text}) {
               <h4>My draggable</h4>
             </div>
           )}
-        </Draggable>;
+        </Draggable>
      )
 }
 
