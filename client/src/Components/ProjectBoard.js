@@ -31,16 +31,12 @@ function ProjectBoard({setUser}) {
      // }
 
      return (
-          // <DragDropContext>
-          //           <div id="project-board">
-          //                {projectId}
-          //                <List cards={[1,2,3]} />
-          //           </div>
-          // </DragDropContext>
-          <div>
-               <LoggedNav setUser={setUser}/>
-               {params.projectId}
-               </div>
+          <DragDropContext>
+                    <div id="project-board">
+                         {params.projectId}
+                         {/* <List cards={[1,2,3]} /> */}
+                    </div>
+          </DragDropContext>
      )
 }
 

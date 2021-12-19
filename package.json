@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "history": "^5.1.0",
-    "react-beautiful-dnd": "^13.1.0",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.0.2"
   }
