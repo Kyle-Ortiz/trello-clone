@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :projects do
+    resources :lists, shared: true 
+  end
   resources :cards
   
   resources :users do 

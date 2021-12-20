@@ -1,10 +1,13 @@
 class ListsController < ApplicationController
      def index 
-        lists = List.order(position: :asc)
+        project = Project.find(params[:project_id])
+        render json: project.lists
      end
 
      def create 
-         new_list = List.create!(name: params[:name])
+         project = Project.find(params[:project_id])
+         project.lists.create!(name:params[:name])
+         render json: project.lists
      end
 
 end

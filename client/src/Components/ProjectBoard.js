@@ -1,6 +1,5 @@
 import React from 'react'
-// import List from './List'
-// import {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import List from './List';
 import Card from './Card';
@@ -9,31 +8,33 @@ import LoggedNav from './LoggedNav';
 
 function ProjectBoard({setUser}) {
      const params = useParams();
-     // const [lists,setLists] = useState(null);
+     const [lists,setLists] = useState(null);
      // const [cards,setCards] = useState(null);
 
-     // useEffect(() => {
-     //      fetch(`/projects/${projectId}`).then((res) => {
-     //           if (res.ok) {
-     //                res.json().then((project)=> {
-     //                     setLists(project.lists);
-     //                     setCards(project.cards);
-     //                });
-     //           }
-     //      })
-     // },[])
+     useEffect(() => {
+          fetch(`/projects/${params.projectId}/lists`).then((res) => {
+               if (res.ok) {
+                    res.json().then((lists)=> {
+                         setLists(lists);
+                    });
+               }
+          })
+     },[])
 
 
-     // function listMapper(lists) {
-     //      const lists = lists.map((list) => {
-     //           <List key={list.id} />
-     //      })
-     // }
+     function listMapper(userLists) {
+          const lists = userLists.map((list) => {
+               return <List key={list.id} name={list.name}/>
+          })
+          return lists;
+     }
 
      return (
           <DragDropContext>
                     <div id="project-board">
-                         <List cards={["1","2","3"]} />
+                         <LoggedNav setUser={setUser}/>
+                         <div className="project-board-lists"></div>
+                         {lists ? listMapper(lists) : "Loading Project"}
                     </div>
           </DragDropContext>
      )

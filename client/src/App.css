@@ -254,3 +254,11 @@ form {
   margin-top: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.project-board-lists{
+  display: flex;
+  flex-direction: row;
+}
+.list-droppable {
+  display: flex;
+  flex-direction: column;
+}

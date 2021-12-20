@@ -12,7 +12,7 @@ function List({cards}) {
      }
 
      return (
-          <Droppable droppableId="droppable-1">
+          <Droppable droppableId="droppable-1" className="list-dropppable">
   {(provided, snapshot) => (
     <div
       ref={provided.innerRef}
