@@ -1,7 +1,8 @@
 class ListsController < ApplicationController
      def index 
         project = Project.find(params[:project_id])
-        render json: project.lists
+        lists = project.lists
+        render json: lists.includes(:cards)
      end
 
      def create 
