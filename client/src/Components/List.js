@@ -20,6 +20,10 @@ function List({cards}) {
       {...provided.droppableProps}
     >
       <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
       {provided.placeholder}
     </div>
   )}
