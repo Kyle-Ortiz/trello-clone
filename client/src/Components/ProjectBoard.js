@@ -216,7 +216,7 @@ function ProjectBoard({setUser}) {
                     {(provided, snapshot) => (
                     <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="draggable">
                          {card.name}
-                         <button onClick={()=> removeTask(id,card.id)}>Delete</button>
+                         <button className="task-buttons"onClick={()=> removeTask(id,card.id)}>Delete</button>
                     </div>
                     )}
                </Draggable>
@@ -225,7 +225,7 @@ function ProjectBoard({setUser}) {
                   )
                 })}
                 {provided.placeholder}
-                <form action="submit" onSubmit={(e)=>taskSubmit(id,e)}>
+                <form action="submit" className="task-form" onSubmit={(e)=>taskSubmit(id,e)}>
                     <input type="text" placeholder="New Task" value={newTask[id]} onChange={(e)=> setNewTask({...newTask, [id] : e.target.value})}/>
                     <input type="submit" value="Add Task"/>
                </form>

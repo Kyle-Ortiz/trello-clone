@@ -34,7 +34,7 @@ function App() {
           <Route path="/projects/:projectId" element={<ProjectBoard user={user} setUser={setUser}/>}/>
 
         </Routes>
-        {user ? <p>Welcome, {user.username}</p> : <p>Welcome, please log in</p>}
+        {/* {user ? <p>Welcome, {user.username}</p> : <p>Welcome, please log in</p>} */}
     </div>
   );
 }
