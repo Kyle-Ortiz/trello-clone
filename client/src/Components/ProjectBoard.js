@@ -5,49 +5,49 @@ import { useParams } from "react-router-dom"
 // import LoggedNav from './LoggedNav';
 import { v4 as uuidv4 } from 'uuid';
 
-const draggableSamples = [
-     {id : "1", 
-      name: "Drag-1"
-     },
-     {id : "2", 
-     name: "Drag-2"
-     },
-     {id : "3", 
-     name: "Drag-3"
-     },
-     {id : "4", 
-     name: "Drag-4"
-     },
-     {id : "5", 
-     name: "Drag-5"
-     },
-     {id : "6", 
-     name: "Drag-6"
-     },
-     {id : "7", 
-     name: "Drag-7"
-     }
-   ]
+// const draggableSamples = [
+//      {id : "1", 
+//       name: "Drag-1"
+//      },
+//      {id : "2", 
+//      name: "Drag-2"
+//      },
+//      {id : "3", 
+//      name: "Drag-3"
+//      },
+//      {id : "4", 
+//      name: "Drag-4"
+//      },
+//      {id : "5", 
+//      name: "Drag-5"
+//      },
+//      {id : "6", 
+//      name: "Drag-6"
+//      },
+//      {id : "7", 
+//      name: "Drag-7"
+//      }
+//    ]
    
-   const startColumns = {
-     "column-1": {
-       name : "Needs to be Done",
-       cards : draggableSamples
-     },
-     "column-2": {
-       name : "In Progress",
-       cards : []
-     },
-     "column-3": {
-       name : "Completed",
-       cards : []
-     }
-   }
+//    const startColumns = {
+//      "column-1": {
+//        name : "Needs to be Done",
+//        cards : draggableSamples
+//      },
+//      "column-2": {
+//        name : "In Progress",
+//        cards : []
+//      },
+//      "column-3": {
+//        name : "Completed",
+//        cards : []
+//      }
+//    }
 
 function ProjectBoard({setUser}) {
      const params = useParams();
-     const [lists,setLists] = useState(null);
-     const [columns, setColumns] = useState(startColumns);
+     const [columns, setColumns] = useState({});
+     const [newTask, setNewTask] = useState({});
      useEffect(() => {
           fetch(`/projects/${params.projectId}/lists`).then((res) => {
                if (res.ok) {
@@ -57,6 +57,11 @@ function ProjectBoard({setUser}) {
                               colObject[uuidv4()] = list
                          })
                          setColumns(colObject);
+                         const tasks = {}
+                         Object.keys(colObject).forEach((list)=> {
+                              tasks[list] = ''
+                         })
+                         setNewTask(tasks);
                     });
                }
           })
@@ -154,10 +159,15 @@ function ProjectBoard({setUser}) {
                     </div>
                     )}
                </Draggable>
+               
                </div>
                   )
                 })}
                 {provided.placeholder}
+                <form action="submit">
+                    <input type="text" placeholder="New Task" value={newTask[id]} onChange={(e)=> setNewTask({...newTask, [id] : e.target.value})}/>
+                    <input type="submit" value="Add Task"/>
+               </form>
               </div>
   )}
     </Droppable> 
