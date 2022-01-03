@@ -2,7 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { useParams } from "react-router-dom"
-// import LoggedNav from './LoggedNav';
+import LoggedNav from './LoggedNav';
 import { v4 as uuidv4 } from 'uuid';
 
 // const draggableSamples = [
@@ -66,6 +66,39 @@ function ProjectBoard({setUser}) {
                }
           })
      },[])
+
+     const taskSubmit = (id,e) => {
+          e.preventDefault();
+          fetch(`/lists/${columns[id].id}/cards`, {
+               method: 'POST',
+               headers: {
+               'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(
+                    {name : newTask[id]}
+               ),
+               })
+               .then(response => {
+                    if (response.ok) {
+                         response.json().then(data => {
+                              console.log('Success:', data);
+                              const column = columns[id];
+                              const copiedItems = [...column.cards]
+                              const addItem = data
+                              copiedItems.push(addItem);
+                              setColumns({
+                                   ...columns, 
+                                   [id]: {
+                                     ...column,
+                                     cards : copiedItems
+                                   }})
+                    })
+                    } else {
+                         window.alert('Failed to submit task')
+                    }
+               })
+               
+     }
 
      const onDragEnd = (result, columns, setColumns) => {
           if (!result.destination) return;
@@ -132,7 +165,34 @@ function ProjectBoard({setUser}) {
           
      } 
 
+     const removeTask = (id,cardId) => {
+          fetch(`/cards/${cardId}`, {
+               method: 'DELETE',
+               headers: {
+               'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(),
+          }).then((r)=> {
+               if (r.ok) {
+                    r.json().then(data => {
+                         console.log('Success:', data);
+                         const newItems = columns[id].cards.filter((card)=> card.id !== data.id);
+                         setColumns({
+                              ...columns, 
+                              [id]: {
+                                ...columns[id],
+                                cards : newItems
+                              }
+                    })
+               })
+               }
+          }
+          )
+     }
+
      return (
+          <div>
+               <LoggedNav setUser={setUser}/>
           <div className="drag-drop-container">
     <DragDropContext onDragEnd={ result => onDragEnd(result, columns, setColumns)}>
       {Object.entries(columns).map(([id,column])=> {
@@ -156,6 +216,7 @@ function ProjectBoard({setUser}) {
                     {(provided, snapshot) => (
                     <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="draggable">
                          {card.name}
+                         <button onClick={()=> removeTask(id,card.id)}>Delete</button>
                     </div>
                     )}
                </Draggable>
@@ -164,7 +225,7 @@ function ProjectBoard({setUser}) {
                   )
                 })}
                 {provided.placeholder}
-                <form action="submit">
+                <form action="submit" onSubmit={(e)=>taskSubmit(id,e)}>
                     <input type="text" placeholder="New Task" value={newTask[id]} onChange={(e)=> setNewTask({...newTask, [id] : e.target.value})}/>
                     <input type="submit" value="Add Task"/>
                </form>
@@ -175,6 +236,7 @@ function ProjectBoard({setUser}) {
         )
       })}
     </DragDropContext>
+    </div>
     </div>
   );
 }

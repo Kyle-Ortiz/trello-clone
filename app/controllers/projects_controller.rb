@@ -17,7 +17,12 @@ class ProjectsController < ApplicationController
           user = User.find_by!(id: params[:user_id])
           if user 
                user.projects.create!(name: params[:name])
-               render json: user.projects.last, status: :created
+               project = user.projects.last
+               lists = ["Todo", "In Progress", "Completed"]
+               lists.each do |list|
+                    project.lists.create!(name: list)
+               end
+               render json: project, status: :created
           end
      end
 

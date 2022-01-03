@@ -12,16 +12,13 @@ function LoggedNav({setUser}) {
                     <img src="https://i.ibb.co/XXRF8hy/2dc7b9004b6948018984e5c013ec7771.png" alt="Logo" />
                     <h3>Easy Boards</h3>
                </div>
-               <div className="search-field">
+               {/* <div className="search-field">
                     <input type="text" id="board-search" placeholder="Search for a board" onChange={(e)=> setSearchVal(e.target.value)}value={searchVal}/>
-               </div>
+               </div> */}
                <div className="categories">
-                    <a href="/Favorites">Favorited</a>
+                    {/* <a href="/Favorites">Favorited</a> */}
                     <a href="/dashboard">Your Boards</a>
-                    <a href="/Shared">Shared with you</a>
-               </div>
-               <div className="account-notification">
-                    <VscAccount />
+                    {/* <a href="/Shared">Shared with you</a> */}
                </div>
                <LogoutButton setUser={setUser}/>
           </div>
