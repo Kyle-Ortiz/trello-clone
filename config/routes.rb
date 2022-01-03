@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :projects do
-    resources :lists, shared: true 
+    resources :lists, shallow: true 
   end
   resources :cards
-  
+  resources :lists do
+    resources :cards, shallow: true
+  end
   resources :users do 
     resources :projects, shallow: true
   end
