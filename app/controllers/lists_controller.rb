@@ -1,8 +1,7 @@
 class ListsController < ApplicationController
      def index 
-        project = Project.find(params[:project_id])
-        lists = project.lists
-        render json: lists.includes(:cards)
+        lists = Project.find_by!(id: params[:project_id]).lists
+        render json: lists.to_json(:only => [:id, :name, :position],:include => :cards)
      end
 
      def create 

@@ -50,6 +50,15 @@ function ProjectBoard({setUser}) {
      const [lists,setLists] = useState(null);
      const [columns, setColumns] = useState(startColumns)
      // const [cards,setCards] = useState(null);
+     useEffect(() => {
+          fetch(`/projects/${params.projectId}/lists`).then((res) => {
+               if (res.ok) {
+                    res.json().then((lists)=> {
+                         setLists(lists);
+                    });
+               }
+          })
+     },[])
 
      const onDragEnd = (result, columns, setColumns) => {
           console.log(result)
@@ -88,25 +97,14 @@ function ProjectBoard({setUser}) {
           )
           }
           
-        }
-
-     useEffect(() => {
-          fetch(`/projects/${params.projectId}/lists`).then((res) => {
-               if (res.ok) {
-                    res.json().then((lists)=> {
-                         setLists(lists);
-                    });
-               }
-          })
-     },[])
-
+     } 
 
      return (
           <div className="drag-drop-container">
     <DragDropContext onDragEnd={ result => onDragEnd(result, columns, setColumns)}>
       {Object.entries(columns).map(([id,column])=> {
         return (
-          <div className="droppable-container">
+          <div className="droppable-container" key={id}>
             <h2>{column.name}</h2> 
           <Droppable droppableId={id} key={id}>
             {(provided, snapshot) => (
@@ -120,7 +118,7 @@ function ProjectBoard({setUser}) {
               >
                 {column.items.map((item, index) => {
                   return (
-                    <div className="draggable-container">
+                    <div className="draggable-container" key={item.id}>
                       <Draggable draggableId={item.id} key={item.id} index={index}>
                     {(provided, snapshot) => (
                     <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="draggable">
