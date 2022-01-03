@@ -24,4 +24,15 @@ class CardsController < ApplicationController
           end
 
      end
+
+     def update
+          card = Card.find(params[:id])
+          if params[:destination_list]
+               card.update(list_id: params[:destination_list])
+               render json: card
+          else
+               card.update(position: params[:position])
+               render json: card
+          end
+     end
 end

@@ -1,10 +1,9 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import List from './List';
-import Card from './Card';
 import { useParams } from "react-router-dom"
-import LoggedNav from './LoggedNav';
+// import LoggedNav from './LoggedNav';
+import { v4 as uuidv4 } from 'uuid';
 
 const draggableSamples = [
      {id : "1", 
@@ -33,68 +32,97 @@ const draggableSamples = [
    const startColumns = {
      "column-1": {
        name : "Needs to be Done",
-       items : draggableSamples
+       cards : draggableSamples
      },
      "column-2": {
        name : "In Progress",
-       items : []
+       cards : []
      },
      "column-3": {
        name : "Completed",
-       items : []
+       cards : []
      }
    }
 
 function ProjectBoard({setUser}) {
      const params = useParams();
      const [lists,setLists] = useState(null);
-     const [columns, setColumns] = useState(startColumns)
-     // const [cards,setCards] = useState(null);
+     const [columns, setColumns] = useState(startColumns);
      useEffect(() => {
           fetch(`/projects/${params.projectId}/lists`).then((res) => {
                if (res.ok) {
                     res.json().then((lists)=> {
-                         setLists(lists);
+                         const colObject = {}
+                         lists.map((list)=> {
+                              colObject[uuidv4()] = list
+                         })
+                         setColumns(colObject);
                     });
                }
           })
      },[])
 
      const onDragEnd = (result, columns, setColumns) => {
-          console.log(result)
           if (!result.destination) return;
+          console.log(result)
           const { source, destination } = result;
           if (source.droppableId !== destination.droppableId) {
             const sourceColumn = columns[source.droppableId];
             const destinationColumn = columns[destination.droppableId];
-            const sourceItems = [...sourceColumn.items];
-            const destinationItems = [...destinationColumn.items];
+            const sourceItems = [...sourceColumn.cards];
+            const destinationItems = [...destinationColumn.cards];
             const [removed] = sourceItems.splice(source.index, 1);
             destinationItems.splice(destination.index, 0, removed);
             setColumns({
               ...columns,
               [source.droppableId]: {
                 ...sourceColumn,
-                items: sourceItems
+                cards: sourceItems
               },
               [destination.droppableId]: {
                 ...destinationColumn,
-                items: destinationItems
+                cards: destinationItems
               }
             })
+            fetch(`/cards/${removed.id}`, {
+               method: 'PATCH',
+               headers: {
+               'Content-Type': 'application/json',
+               },
+               body: JSON.stringify({
+                    "destination_list" : destinationColumn.id, 
+                    "position" : destination.index + 1,
+               }),
+               })
+               .then(response => response.json())
+               .then(data => {
+               console.log('Success:', data);
+          })
           } else {
             const column = columns[source.droppableId];
-            const copiedItems = [...column.items];
+            const copiedItems = [...column.cards];
             const [removed] = copiedItems.splice(source.index, 1);
             copiedItems.splice(destination.index, 0, removed);
             setColumns({
               ...columns, 
               [source.droppableId]: {
                 ...column,
-                items : copiedItems
+                cards : copiedItems
               }
           }
           )
+          fetch(`/cards/${removed.id}`, {
+               method: 'PATCH',
+               headers: {
+               'Content-Type': 'application/json',
+               },
+               body: JSON.stringify({"position": destination.index + 1}),
+          })
+          .then(response => response.json())
+          .then(data => {
+          console.log('Success:', data);
+})
+
           }
           
      } 
@@ -116,13 +144,13 @@ function ProjectBoard({setUser}) {
               {...provided.droppableProps}
               className="droppable"
               >
-                {column.items.map((item, index) => {
+                {column.cards.map((card, index) => {
                   return (
-                    <div className="draggable-container" key={item.id}>
-                      <Draggable draggableId={item.id} key={item.id} index={index}>
+                    <div className="draggable-container" key={card.id}>
+                      <Draggable draggableId={card.id.toString()} key={card.id} index={index}>
                     {(provided, snapshot) => (
                     <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} className="draggable">
-                         {item.name}
+                         {card.name}
                     </div>
                     )}
                </Draggable>
