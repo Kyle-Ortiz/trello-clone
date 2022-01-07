@@ -139,7 +139,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Kyle Ortiz - [linkedin-url](https://twitter.com/twitter_handle) - [email](kyleaortiz@gmail.com)
+Kyle Ortiz - [LinkedIn](https://www.linkedin.com/in/kyleortiz/) - kyleaortiz@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
