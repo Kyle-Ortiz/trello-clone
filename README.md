@@ -38,12 +38,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -52,24 +47,21 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![EasyBoards][product-screenshot]](https://ibb.co/vPtrJ9S)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
+Easy Boards is a kanban style project board manager, much like trello, intended to help people orangize the tasks needed to complete their life projects. Current features include: user authenctication, creating new project boards, adding tasks to project boards, drag and drop functionality for the project tasks, and deleting a task and project. React was used for the frontend with Ruby on Rails for the backend. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 ### Built With
-
-* [Next.js](https://nextjs.org/)
 * [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [React Router v6](https://reactrouter.com/docs/en/v6)
+* [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+* [Ruby on Rails](https://rubyonrails.org/)
+* [acts_as_list gem](https://github.com/brendon/acts_as_list)
+* [PostgreSQL Database(managed with activerecord)](https://www.postgresql.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -78,57 +70,54 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Here is how you can try out easy boards on your own machine right now. 
+
+This is an example of how to list things you need to use the software and how to install them. These are preliminary instructions and may not work correctly yet.
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
   ```
 
 ### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/Kyle-Ortiz/trello-clone
    ```
-3. Install NPM packages
+3. Install NPM packages(top level directory)
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Run bundle to install ruby gems
+   ```sh
+   bundle install
    ```
-
+5. go into "client" directory and install client packages
+   ```sh
+   npm install
+   ```
+6. once all dependencies are installed, run npm start in the client directory
+   ```sh
+   npm start
+   ```
+7. then, change to the parent directory and start the rails server
+   ```sh
+   cd ..
+   rails s
+   ```
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
+Improvements and new features with will be added to this project in the future: 
 
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+- [] UI and style improvements
+- [] Deployment to Heroku
+- [] User creation of new lists (currently staticly created for each project)
+    - [] Drag and drop for lists in project
+- [] Mutiple users on the same project
+    - [] adding users to project by email
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -136,9 +125,6 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 
 <!-- CONTRIBUTING -->
 ## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
@@ -150,42 +136,17 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Kyle Ortiz - [linkedin-url](https://twitter.com/twitter_handle) - [email](kyleaortiz@gmail.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
 [forks-url]: https://github.com/github_username/repo_name/network/members
@@ -195,6 +156,6 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [issues-url]: https://github.com/github_username/repo_name/issues
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
 [license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555 -->
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
