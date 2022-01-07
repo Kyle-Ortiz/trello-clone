@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://i.ibb.co/XXRF8hy/2dc7b9004b6948018984e5c013ec7771.png">
+  <a href="images/logo.png">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -47,7 +47,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![EasyBoards][product-screenshot]](https://i.ibb.co/fpcKCJs/Screen-Shot-2022-01-07-at-12-26-19-PM.png)
+[![EasyBoards][product-screenshot]](images/screeenshot.png)
 
 Easy Boards is a kanban style project board manager, much like trello, intended to help people orangize the tasks needed to complete their life projects. Current features include: user authenctication, creating new project boards, adding tasks to project boards, drag and drop functionality for the project tasks, and deleting a task and project. React was used for the frontend with Ruby on Rails for the backend. 
 
