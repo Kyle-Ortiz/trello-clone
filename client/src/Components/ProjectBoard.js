@@ -97,7 +97,8 @@ function ProjectBoard({setUser}) {
                          window.alert('Failed to submit task')
                     }
                })
-               
+          setNewTask({...newTask,
+                    [id]: ""});     
      }
 
      const onDragEnd = (result, columns, setColumns) => {
