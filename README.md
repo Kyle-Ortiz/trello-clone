@@ -70,42 +70,8 @@ Easy Boards is a kanban style project board manager, much like trello, intended 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Here is how you can try out easy boards on your own machine right now. 
+Easy Boards is now deployed to Heroku ready for you to test out! just click this [link](https://easyboards.herokuapp.com/), sign up, login, and you're ready to go! Any constructive criticism is greatly appreciated. Thanks for checking out my app! 
 
-This is an example of how to list things you need to use the software and how to install them. These are preliminary instructions and may not work correctly yet.
-
-### Prerequisites
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-2. Clone the repo
-   ```sh
-   git clone https://github.com/Kyle-Ortiz/trello-clone
-   ```
-3. Install NPM packages(top level directory)
-   ```sh
-   npm install
-   ```
-4. Run bundle to install ruby gems
-   ```sh
-   bundle install
-   ```
-5. go into "client" directory and install client packages
-   ```sh
-   npm install
-   ```
-6. once all dependencies are installed, run npm start in the client directory
-   ```sh
-   npm start
-   ```
-7. then, change to the parent directory and start the rails server
-   ```sh
-   cd ..
-   rails s
-   ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ROADMAP -->
