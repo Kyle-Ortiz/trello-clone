@@ -113,7 +113,7 @@ This is an example of how to list things you need to use the software and how to
 Improvements and new features with will be added to this project in the future: 
 
 - [] UI and style improvements
-- [] Deployment to Heroku
+- [] Deployment to Heroku(in Progress)
 - [] User creation of new lists (currently staticly created for each project)
     - [] Drag and drop for lists in project
 - [] Mutiple users on the same project
