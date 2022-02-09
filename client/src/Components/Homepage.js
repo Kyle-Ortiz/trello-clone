@@ -23,7 +23,7 @@ function Homepage() {
                     </div>
                     <form action="submit">
                          <input type="text" className="form"placeholder="Email" value={homeEmail} onChange={(e)=> setHomeEmail(e.target.value)}/>
-                         <button onClick={(e)=> handleSubmit(e)}> Sign Up! </button>
+                         <button className="blue-button buttons" onClick={(e)=> handleSubmit(e)}> Sign Up! </button>
                     </form>
                </div>}
           </div>
