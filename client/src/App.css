@@ -28,8 +28,8 @@ a {
 }
 
 #nav-logo {
-  height: 25px;
-  width: 25px;
+  height: 35px;
+  width: 35px;
   padding-right: 7px;
 }
 .buttons {
@@ -49,12 +49,12 @@ a {
   color: #0051cc;
   text-decoration: underline;
 }
-#signup-button {
+.blue-button {
   color: #fff;
   background-color: #0065ff;
   border-radius: 0.2rem;
 }
-#signup-button:hover {
+.blue-button:hover {
   background-color: #0051cc;
 }
 .signup-login-form {
@@ -312,4 +312,21 @@ form {
   border: 1px solid transparent;
   border-radius: 3px;
   background-color: eggwhite;
+}
+.nav-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.nav-left p {
+  font-weight: 500;
+  margin: auto;
+  font-size:  1.5rem;
+}
+
+#home-email {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
