@@ -78,7 +78,7 @@ Easy Boards is now deployed to Heroku ready for you to test out! just click this
 ## Roadmap
 Improvements and new features with will be added to this project in the future: 
 
-- [] UI and style improvements
+- [] UI and style improvements(in progress!)
 - ✅ Deployment to Heroku
 - [] User creation of new lists (currently staticly created for each project)
     - [] Drag and drop for lists in project
