@@ -24,7 +24,7 @@ function Homepage() {
                          <form action="submit" id="home-email">
                          {/* <input type="text" className="form"placeholder="Email" value={homeEmail} onChange={(e)=> setHomeEmail(e.target.value)}/> */}
                          <TextField size="small" id="outlined-basic" className="form"label="Email" value={homeEmail} onChange={(e)=> setHomeEmail(e.target.value)}variant="outlined" />
-                         <button className="blue-button buttons" onClick={(e)=> handleSubmit(e)}> Sign Up! </button>
+                         <button id="home-signup-button"className="blue-button buttons" onClick={(e)=> handleSubmit(e)}> Sign Up! </button>
                          </form>
                     </div>
                     <div id="home-image">
