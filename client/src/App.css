@@ -337,6 +337,7 @@ form {
   justify-content: center;
   align-items: center;
   gap: 4rem;
+  margin-top: 4rem;
 }
 .homepage-text {
   text-align: left;
