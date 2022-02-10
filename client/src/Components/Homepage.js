@@ -28,7 +28,7 @@ function Homepage() {
                          </form>
                     </div>
                     <div id="home-image">
-                         <img id="home-art" src="https://i.ibb.co/4fgWRwx/Pngtree-teamwork-elements-of-english-cartoon-3848118.png" alt="home image" />
+                         <img id="home-art" src="https://i.ibb.co/CMgq0MT/Pngtree-teamwork-elements-of-english-cartoon-3848118.png" alt="home image" />
                     </div>
                     
                     </div>
