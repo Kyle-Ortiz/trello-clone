@@ -1,10 +1,9 @@
 import React from 'react'
-import {useState} from 'react'
-import { VscAccount } from "react-icons/vsc";
+// import {useState} from 'react'
 import LogoutButton from './LogoutButton'
 
 function LoggedNav({setUser}) {
-     const [searchVal, setSearchVal] = useState("");
+     // const [searchVal, setSearchVal] = useState("");
 
      return (
           <div className="dash-nav">
