@@ -14,8 +14,8 @@ function LogoutButton({user,setUser}) {
           }
      }
      return (
-          <button onClick={logout} className="buttons">
-               Logout
+          <button onClick={logout} className="buttons" id="logout-button">
+               Sign out
           </button>
      )
 }

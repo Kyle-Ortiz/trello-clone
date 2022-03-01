@@ -363,3 +363,7 @@ form {
   padding: .4rem 2rem;
   font-weight: bold;
 }
+#logout-button {
+  border-radius: 0.2rem;
+  color: #0051cc;
+}
