@@ -4,6 +4,7 @@ import {useEffect,useState} from 'react'
 import ProjectBoard from './ProjectBoard'
 import UserProjects from './UserProjects'
 import ProjectForm from './ProjectForm'
+import NewProjectTile from './NewProjectTile'
 
 function Dashboard({user, setUser}) {
      const[errors,setErrors] = useState(null);
@@ -38,7 +39,8 @@ function Dashboard({user, setUser}) {
                <LoggedNav setUser={setUser}/>
                <div className="dashboard-list-header"> 
                     <h2>Your Projects</h2>
-                    {!isloading ? <UserProjects projects={userProjects} setProjects={setUserProjects}setClickedId={setClickedId} />: <p>Please wait while we load your projects...</p>}
+                    {!isloading ? <UserProjects projects={userProjects} setProjects={setUserProjects}setClickedId={setClickedId} setButton={setButton}/>: <p>Please wait while we load your projects...</p>}
+                    <NewProjectTile />
                     <div>
                          <button id="new-project" onClick={() => setButton(!button)}>New Project</button>
                          {button ? <ProjectForm user={user} projects={userProjects} setUserProjects={setUserProjects} setButton={setButton}/> : null}

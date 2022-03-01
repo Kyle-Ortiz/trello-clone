@@ -1,8 +1,8 @@
 import React from 'react'
 
-function NewProjectTile() {
+function NewProjectTile({setButton}) {
   return (
-    <button>
+    <button onClick={()=> setButton(true)} className="project-card">
          Create New Project Here
     </button>
   )
